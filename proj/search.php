@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="all" href="css/style.css">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -16,7 +15,7 @@
     <nav class="navbar navbar-inverse" id="nav">
         <ul class="nav navbar-nav" id="navb">
             <li><a href="index.php">Search</a></li>
-            <li><a href="search.php">IP Segments</a></li>
+            <li><a href="ipseg.php">IP Segments</a></li>
         </ul>
     </nav>
 
