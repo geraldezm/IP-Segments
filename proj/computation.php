@@ -3,8 +3,8 @@
 
           <?php
           
-          funcion ipRange($ip){
-            $ipArray = []
+          function ipRange($ip){
+            $ipArray = [];
 
             $ipadd = explode(".", $ip);
 
