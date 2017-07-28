@@ -20,53 +20,47 @@
         </ul>
     </nav>
 
-<div class="elastic container">
+    <div class="oz container">
 
-<h1>Elastic Cloud(SJC1,IAD1, MUC1, LHR1)</h1>
+<a href="newrecordocaz.php" type="button" class="btn btn-default btn-sm" id="elastic-add">Add Record</a>
 
-<a href="newrecordec.php" type="button" class="btn btn-default btn-sm" id="elastic-add">Add Record</a>
+<table class="table-bordered table-hover table-sm table" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
 
-<table class="table table-bordered table-hover" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
     <tr>
         <thead>
-        <th>Elastic Cloud DC</th>
+        <th>Opencloud Availability Zone</th>
         <th>Public Range</th>
         <th>Private Range</th>
-        <th> </th>
+        <th></th>
         </thead>
     </tr>
 
-    
-
 <?php
-
-require_once 'db.php';
-
-    $db = new mysqli('localhost', 'root', '', 'ip_segments');
-
         
+        #connect to database
+        $db = new mysqli('localhost', 'root', '', 'ip_segments');
 
-        $query = $db->query("SELECT ecseg_id, ec_dc, ecpub_ip, ecpri_ip FROM elastic_cloud");
+        #database query
+        $query = $db->query("SELECT ocazseg_id, oc_az, ocazpub_ip, ocazpri_ip FROM opencloud_az");
 
+        #if query has results
         if ($query->num_rows) {
- 
+            #queried object will be placed in $r
             while ($r = $query->fetch_object()) {
 
                 echo "<tr>";
-                echo "<td>".$r->ec_dc."</td>";
-                echo "<td>".$r->ecpub_ip."</td>";
-                echo "<td>".$r->ecpri_ip."</td>";
-                echo "<td><a href='delelastic.php?id=".$r->ecseg_id."' class='btn btn-danger' id='elastic' role='button'>Delete</a></td>";
+                echo "<td>".$r->oc_az."</td>";
+                echo "<td>".$r->ocazpub_ip."</td>";
+                echo "<td>".$r->ocazpri_ip."</td>";
+                echo "<td><a href='delocaz.php?id=".$r->ocazseg_id."' class='btn btn-danger' id='dc' role='button'>Delete</a></td>";
                 echo "</tr>";
             }
         }
 
 
-
 ?>
-
 </table>
-
 </div>
+  
     </body>
 </html>

@@ -20,53 +20,38 @@
         </ul>
     </nav>
 
-<div class="elastic container">
+ <div class="dc container">
+<p>Management IPs</p>
 
-<h1>Elastic Cloud(SJC1,IAD1, MUC1, LHR1)</h1>
+<a href="newrecorddc.php" type="button" class="btn btn-default btn-sm" id="elastic-add">Add Record</a>
 
-<a href="newrecordec.php" type="button" class="btn btn-default btn-sm" id="elastic-add">Add Record</a>
+<table class="table-bordered table-hover table" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
 
-<table class="table table-bordered table-hover" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
-    <tr>
-        <thead>
-        <th>Elastic Cloud DC</th>
-        <th>Public Range</th>
-        <th>Private Range</th>
-        <th> </th>
-        </thead>
-    </tr>
-
-    
+<tr>
+        <th>Data Center</th>
+        <th>IP Range</th>
+        <th></th>
+</tr>
 
 <?php
 
-require_once 'db.php';
-
     $db = new mysqli('localhost', 'root', '', 'ip_segments');
-
-        
-
-        $query = $db->query("SELECT ecseg_id, ec_dc, ecpub_ip, ecpri_ip FROM elastic_cloud");
+    $query = $db->query("SELECT dcseg_id, dc, ip_range FROM dc");
 
         if ($query->num_rows) {
- 
             while ($r = $query->fetch_object()) {
-
                 echo "<tr>";
-                echo "<td>".$r->ec_dc."</td>";
-                echo "<td>".$r->ecpub_ip."</td>";
-                echo "<td>".$r->ecpri_ip."</td>";
-                echo "<td><a href='delelastic.php?id=".$r->ecseg_id."' class='btn btn-danger' id='elastic' role='button'>Delete</a></td>";
+                echo "<td>".$r->dc."</td>";
+                echo "<td>".$r->ip_range."</td>";
+                echo "<td><a href='deldc.php?id=".$r->dcseg_id."' class='btn btn-danger' id='dc' role='button'>Delete</a></td>";
                 echo "</tr>";
             }
         }
-
-
-
+    
 ?>
-
 </table>
-
 </div>
+
+
     </body>
 </html>

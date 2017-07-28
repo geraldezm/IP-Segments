@@ -8,10 +8,49 @@
 }
 
 
-#table {
-	margin-bottom: 10px;
+.trend {
+	background-image: url('../images/bg.JPG');
+	height: 100%
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
-p {
-	color: blue;
+.button {
+	position: absolute;
+	margin-top: 5%;
+}
+
+#elastic {
+	margin-left: 24.5%;
+
+}
+
+#dc {
+	margin-left: 30%;
+
+}
+
+#ocaz {
+	margin-left: 38%;
+
+}
+
+#global {
+	margin-left: 53%;
+
+}
+
+.edit-ec {
+	margin: 50%;
+    width:80%
+}
+
+#elastic-add {
+	margin-left: 93%;
+}
+
+#sbmt-ec {
+	margin-top:5.2%;
+
 }

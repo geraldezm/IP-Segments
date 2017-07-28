@@ -5,9 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css">
+    <script src="boostrap.min.js"></script>
 </head>
 
 <body>
@@ -24,13 +25,12 @@
 
 <p>Elastic Cloud(SJC1,IAD1, MUC1, LHR1)</p>
 
-<table class="table-bordered table-hover" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
+<table class="table-bordered table-hover table" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
 	<tr>
 		<thead>
 		<th>Elastic Cloud DC</th>
 		<th>Public Range</th>
 		<th>Private Range</th>
-		<th>Description</th>
 		</thead>
 	</tr>
 
@@ -49,7 +49,6 @@ require_once 'db.php';
 				echo "<td>".$r->ec_dc."</td>";
 				echo "<td>".$r->ecpub_ip."</td>";
 				echo "<td>".$r->ecpri_ip."</td>";
-				echo "<td>"."Insert Description Here"."</td>";
 				echo "</tr>";
 			}
 		}
@@ -59,63 +58,29 @@ require_once 'db.php';
 </div>
 
 
-
-<div class="sdi container">
-<table class="table-bordered table-hover table-sm" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
-
-	<tr>
-		<thead>
-		<th>SDI DC/Service POD</th>
-		<th>Public Range</th>
-		<th>Private Range</th>
-		<th>Description</th>
-		</thead>
-	</tr>
-
-<?php
-		$query = $db->query("SELECT sdi_sp, sdisppub_ip, sdisppri_ip FROM sdi_sp");
-
-		if ($query->num_rows) {
-			while ($r = $query->fetch_object()) {
-
-				echo "<tr>";
-				echo "<td>".$r->sdi_sp."</td>";
-				echo "<td>".$r->sdisppub_ip."</td>";
-				echo "<td>".$r->sdisppri_ip."</td>";
-				echo "<td>"."Description"."</td>";
-				echo "</tr>";
-			}
-		}
-
-
-?>
-</table>
-</div>
 
 <div class="oz container">
 
-<table class="table-bordered table-hover table-sm" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
+<table class="table-bordered table-hover table-sm table" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
 
 	<tr>
 		<thead>
 		<th>Opencloud Availability Zone</th>
 		<th>Public Range</th>
 		<th>Private Range</th>
-		<th>Description</th>
 		</thead>
 	</tr>
 
 <?php
-		$query = $db->query("SELECT sdi_sp, sdisppub_ip, sdisppri_ip FROM sdi_sp");
+		$query = $db->query("SELECT oc_az, ocazpub_ip, ocazpri_ip FROM opencloud_az");
 
 		if ($query->num_rows) {
 			while ($r = $query->fetch_object()) {
 
 				echo "<tr>";
-				echo "<td>".$r->sdi_sp."</td>";
-				echo "<td>".$r->sdisppub_ip."</td>";
-				echo "<td>".$r->sdisppri_ip."</td>";
-				echo "<td>"."Description"."</td>";
+				echo "<td>".$r->oc_az."</td>";
+				echo "<td>".$r->ocazpub_ip."</td>";
+				echo "<td>".$r->ocazpri_ip."</td>";
 				echo "</tr>";
 			}
 		}
@@ -128,7 +93,7 @@ require_once 'db.php';
 
 <div class="dc container">
 <p>Management IPs</p>
-<table class="table-bordered table-hover" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
+<table class="table-bordered table-hover table" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
 
 <tr>
 		<th>Data Center</th>
@@ -156,7 +121,7 @@ $query = $db->query("SELECT dc, ip_range FROM dc");
 <div class="global container">
 <p>Global IP List</p>
 
-<table class="table-bordered table-hover" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
+<table class="table-bordered table-hover table" id="table" style="margin-top:10px; margin-left:10px; margin-bottom: 10px;">
 	<tr>
 		<th>Regional</th>
 		<th>Site</th>
@@ -180,7 +145,6 @@ $query = $db->query("SELECT dc, ip_range FROM dc");
 				echo "</tr>";
 			}
 		}
-
 ?>
 </table>
 </div>

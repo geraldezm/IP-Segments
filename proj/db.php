@@ -1,3 +1,3 @@
 <?php
-$dv = new mysqli('localhost', 'root', '', 'ip_segments');
+$db = new mysqli('localhost', 'root', '', 'ip_segments');
 ?>
